@@ -1,0 +1,12 @@
+### get
+GET http://localhost:3000/orders/1
+
+### post
+POST http://localhost:3000/orders HTTP/1.1
+content-type: application/json
+
+{
+    "name": "a",
+    "price": 100,
+    "phoneNumber": "616-913-6200"
+}
