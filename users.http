@@ -2,17 +2,16 @@
 GET http://localhost:3000/orders/3
 
 ### post
-POST http://localhost:3000/orders HTTP/1.1
+POST http://localhost:3001/auth/login HTTP/1.1
 content-type: application/json
 
 {
-    "name": "d",
-    "price": 100,
-    "phoneNumber": "616-913-6200"
+    "email": "a@a.com",
+    "password": "123344545"
 }
 
 ### post
-POST http://localhost:3001/auth/login HTTP/1.1
+POST http://localhost:3001/auth/users HTTP/1.1
 content-type: application/json
 
 {

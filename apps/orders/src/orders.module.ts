@@ -5,7 +5,7 @@ import { OrdersService } from './orders.service';
 import * as Joi from 'joi';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Orders } from './orders';
-import { DatabaseModule, RmqModule } from '@app/common';
+import { AuthModule, DatabaseModule, RmqModule } from '@app/common';
 import { BILLING_SERVICE } from './constants/services';
 
 @Module({
@@ -21,6 +21,7 @@ import { BILLING_SERVICE } from './constants/services';
     DatabaseModule,
     TypeOrmModule.forFeature([Orders]),
     RmqModule.register({ name: BILLING_SERVICE }),
+    AuthModule,
   ],
   controllers: [OrdersController],
   providers: [OrdersService],
