@@ -8,6 +8,7 @@ import {
   Req,
   UseGuards,
 } from '@nestjs/common';
+import { Request } from 'express';
 import { CreateOrdersDto } from './dto/create-orders.dto';
 import { OrdersService } from './orders.service';
 
@@ -17,9 +18,9 @@ export class OrdersController {
 
   @Post()
   @UseGuards(JwtRPCAuthGuard)
-  async createOrder(@Body() request: CreateOrdersDto, @Req() req: any) {
+  async createOrder(@Body() request: CreateOrdersDto, @Req() req: Request) {
     console.log('ORDERS: ', req.user);
-    return this.ordersService.save(request);
+    return this.ordersService.createOrder(request, req.cookies?.Authentication);
   }
   @Get('/:id')
   async getOrder(@Param('id') id: number) {

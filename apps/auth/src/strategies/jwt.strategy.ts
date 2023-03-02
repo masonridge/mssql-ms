@@ -11,6 +11,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     configService: ConfigService,
     private readonly usersService: UserService,
   ) {
+    console.log('TRYING...');
     super({
       jwtFromRequest: ExtractJwt.fromExtractors([
         (request: any) => {

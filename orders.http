@@ -6,8 +6,8 @@ POST http://localhost:3000/orders HTTP/1.1
 content-type: application/json
 
 {
-    "name": "d",
-    "price": 100,
+    "name": "f",
+    "price": 200,
     "phoneNumber": "616-913-6200"
 }
 

@@ -1,5 +1,5 @@
-import { RmqService } from '@app/common';
-import { Controller, Get } from '@nestjs/common';
+import { JwtRPCAuthGuard, RmqService } from '@app/common';
+import { Controller, Get, UseGuards } from '@nestjs/common';
 import {
   Ctx,
   EventPattern,
@@ -23,6 +23,7 @@ export class BillingController {
 
   // @EventPattern
   @EventPattern('order_created')
+  @UseGuards(JwtRPCAuthGuard)
   handleOrderCreated(@Payload() data: any, @Ctx() ctx: RmqContext) {
     console.log('Hello');
 

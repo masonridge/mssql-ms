@@ -14,6 +14,9 @@ export class JwtRPCAuthGuard implements CanActivate {
     context: ExecutionContext,
   ): boolean | Promise<boolean> | Observable<boolean> {
     const authentication = this.getAuthentication(context);
+    if (!authentication) {
+      throw new UnauthorizedException('NOT available');
+    }
     return this.authClient
       .send('validate_user', { Authentication: authentication })
       .pipe(
@@ -21,6 +24,8 @@ export class JwtRPCAuthGuard implements CanActivate {
           this.addUser(user, context);
         }),
         catchError(() => {
+          console.log('NDNDNDNDNFDEDS');
+
           throw new UnauthorizedException();
         }),
       );
