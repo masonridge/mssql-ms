@@ -7,6 +7,7 @@ import {
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { ConfigService } from '@nestjs/config';
 import * as cookieParser from 'cookie-parser';
+// const cookieParser = require('cookie-parser');
 import { AUTH_SERVICE } from './services';
 import { RmqModule } from '../rmq/rmq.module';
 
